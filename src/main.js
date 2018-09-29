@@ -1,4 +1,5 @@
 import Vue from 'vue'
+//import Vue from "vue/dist/vue.common.js";
 import VueRouter from 'vue-router'
 import routes from './router/router'
 import store from './store/'

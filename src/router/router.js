@@ -45,7 +45,7 @@ const service = r => require.ensure([], () => r(require('../page/service/service
 const questionDetail = r => require.ensure([], () => r(require('../page/service/children/questionDetail')), 'questionDetail')
 const find = r => require.ensure([], () => r(require('../page/find/find')), 'find')
 const download = r => require.ensure([], () => r(require('../page/download/download')), 'download')
-
+const test = r => require.ensure([], () => r(require('../page/test/test.vue')), 'test')
 
 
 
@@ -63,6 +63,7 @@ export default [{
             path: '/home',
             component: home
         },
+ 
         //当前选择城市页
         {
             path: '/city/:cityid',
@@ -128,6 +129,10 @@ export default [{
                     }]
                 }, ]
             }, ]
+        },
+        {
+            path: '/test',
+           component: test
         },
         //登录注册页
         {
