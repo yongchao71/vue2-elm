@@ -1,4 +1,6 @@
 import headTop from '../../components/header/head'
+import footGuide from '../../components/footer/footGuide.vue'
+import ratingStar from '../../components/common/ratingStar.vue'
 import {cityGuess, hotcity, groupcity} from '../../service/getData'
 
 export default {
@@ -32,7 +34,9 @@ export default {
     },
 
     components:{
-        headTop
+        headTop,
+        footGuide,
+        ratingStar
     },
 
     computed:{
