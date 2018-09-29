@@ -90,7 +90,7 @@
             ]),
         },
         methods: {
-            ...mapMutations([
+            ...mapMtations([
                 'CONFIRM_ADDRESS'
             ]),
             //选择性别
