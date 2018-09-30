@@ -1,27 +1,47 @@
 import App from '../App'
-
+import {routerMode} from '../config/env'
+import VueRouter from 'vue-router'
+import Vue from 'vue';
+Vue.use(VueRouter);
 const home = r => require.ensure([], () => r(require('../page/home/home')), 'home')
 const test = r => require.ensure([], () => r(require('../page/test/test.vue')), 'test')
-
-
-
-export default [{
+const routes=[{
     path: '/',
-    component: App, //顶层路由，对应index.html
-    children: [ //二级路由。对应App.vue
-        //地址为空时跳转home页面
+    component: App,
+    children: [ 
         {
             path: '',
             redirect: '/home'
         },
-        //首页城市列表页
         {
             path: '/home',
-            component: home
+            component: home,
+            meta: {
+                title: '首页'
+            }
         },
         {
             path: '/test',
-           component: test
+            component: test,
+            meta: {
+                title: '测试页'
+            }
         },
     ]
-}]
+}];
+
+export default new VueRouter({
+	routes,
+	mode: routerMode,
+	strict: process.env.NODE_ENV !== 'production',
+	scrollBehavior (to, from, savedPosition) {
+	    if (savedPosition) {
+		    return savedPosition
+		} else {
+			if (from.meta.keepAlive) {
+				from.meta.savedPosition = document.body.scrollTop;
+			}
+		    return { x: 0, y: to.meta.savedPosition || 0 }
+		}
+    }
+})

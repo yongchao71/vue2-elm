@@ -1,6 +1,7 @@
 import {
 	RECORD_ADDRESS,
 	RECORD_SHOPDETAIL,
+	CHANGE_COUNT,
 } from './mutation-types.js'
 
 import {setStore, getStore} from '../config/mUtils'
@@ -8,7 +9,9 @@ import {setStore, getStore} from '../config/mUtils'
 import {localapi, proapi} from 'src/config/env'
 
 export default {
-	// 记录当前经度纬度
+	[CHANGE_COUNT](state,count){
+       state.count++;
+	},
 	[RECORD_ADDRESS](state, {
 		latitude,
 		longitude
