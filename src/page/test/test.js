@@ -7,7 +7,7 @@ import { mapState, mapMutations } from "vuex";
 export default {
   data() {
     return {
-      showAlert: true,
+      showAlert: false,
       loginWay: "",
       guessCity: "", //当前城市
       guessCityid: "", //当前城市id
@@ -17,20 +17,6 @@ export default {
   },
 
   mounted() {
-    // // 获取当前城市
-    // cityGuess().then(res => {
-    //     this.guessCity = res.name;
-    //     this.guessCityid = res.id;
-    // })
-    // //获取热门城市
-    // hotcity().then(res => {
-    //     this.hotcity = res;
-    // })
-    // //获取所有城市
-    // groupcity().then(res => {
-    //     this.groupcity = res;
-    //     console.log(res)
-    // })
   },
 
   components: {
@@ -41,7 +27,7 @@ export default {
   },
 
   computed: {
-    ...mapState(["userInfo", "addressIndex", "newAddress"]),
+    ...mapState(["userInfo", "addressIndex", "count"]),
     //将获取的数据按照A-Z字母开头排序
     sortgroupcity() {
       let sortobj = {};
@@ -57,7 +43,7 @@ export default {
   },
 
   methods: {
-    ...mapMutations(["CHOOSE_ADDRESS"]),
+    ...mapMutations(["CHOOSE_ADDRESS","CHANGE_COUNT"]),
     //点击图标刷新页面
     reload() {
       window.location.reload();
@@ -66,6 +52,14 @@ export default {
     chooseAddress(address, index) {
       this.CHOOSE_ADDRESS({ address, index });
       this.$router.go(-1);
+    },
+    fChangeCount(){
+      let count=this.count;
+      this.CHANGE_COUNT(2);
+      console.log("this data count-------",count);
+    },
+    fShowCount(){
+       console.log(this.$store.state);
     }
   },
   watch: {
@@ -76,6 +70,9 @@ export default {
     },
     newAddress: function(value) {
       this.initData();
+    },
+    count(){
+      console.log("change count------",this.count);
     }
   }
 };
