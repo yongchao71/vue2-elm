@@ -13,7 +13,7 @@ export default {
 
   mounted() {
     getUserList().then(res=>{
-      console.log("get user list info-----------",res);
+      console.log("get user list info----6666-------",res);
     }).catch(res=>{
       console.log("get user list error-----------");
     });
