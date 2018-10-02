@@ -24,8 +24,17 @@ module.exports = {
         context: [ //代理路径
             '/shopping'
         ],
+        proxyTable: {
+            '/users':{
+                target: 'https://www.easy-mock.com/mock/5b2f4da70e946a3379e72c9a',
+                changeOrigin: true,
+                pathRewrite:{
+                  '/api':''
+              }
+            }
+          },
        // proxypath: 'http://cangdu.org:8001',
-        proxypath: 'http://elm.cangdu.org',
+        //proxypath: 'http://elm.cangdu.org',
         cssSourceMap: false
     }
 }

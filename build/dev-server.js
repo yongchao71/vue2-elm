@@ -37,7 +37,7 @@ compiler.plugin('compilation', function(compilation) {
 var context = config.dev.context
 
 switch(process.env.NODE_ENV){
-    case 'local': var proxypath = 'http://localhost:8001'; break;
+    case 'local': var proxypath = 'http://localhost:'+port; break;
     case 'online': var proxypath = 'http://elm.cangdu.org'; break;
     default:  var proxypath = config.dev.proxypath;
 }
@@ -48,21 +48,11 @@ var options = {
 if (context.length) {
     server.use(proxyMiddleware(context, options))
 }
-
-// handle fallback for HTML5 history API
 server.use(require('connect-history-api-fallback')())
-
-// serve webpack bundle output
 server.use(devMiddleware)
-
-// enable hot-reload and state-preserving
-// compilation error display
 server.use(hotMiddleware)
-
-// serve pure static assets
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 server.use(staticPath, express.static('./static'))
-
 module.exports = server.listen(port, function(err) {
     if (err) {
         console.log(err)
@@ -70,8 +60,6 @@ module.exports = server.listen(port, function(err) {
     }
     var uri = 'http://localhost:' + port
     console.log('Listening at ' + uri + '\n')
-
-    // when env is testing, don't need open it
     if (process.env.NODE_ENV !== 'testing') {
         opn(uri)
     }

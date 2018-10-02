@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=online node build/dev-server.js",
     "local": "cross-env NODE_ENV=local node build/dev-server.js",
+    "test": "cross-env NODE_ENV=local",
     "build": "node build/build.js"
   },
   "dependencies": {
