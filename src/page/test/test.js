@@ -1,7 +1,7 @@
 import headTop from "../../components/header/head";
 import footGuide from "../../components/footer/footGuide.vue";
 import ratingStar from "../../components/common/ratingStar.vue";
-import { cityGuess, hotcity, groupcity } from "../../service/getData";
+import {getUserList, groupcity } from "../../service/getData";
 import alertTip from "src/components/common/alertTip";
 import { mapState, mapMutations } from "vuex";
 export default {
@@ -12,6 +12,11 @@ export default {
   },
 
   mounted() {
+    getUserList().then(res=>{
+      console.log("get user list info-----------",res);
+    }).catch(res=>{
+      console.log("get user list error-----------");
+    });
   },
 
   components: {
@@ -30,7 +35,7 @@ export default {
     fChangeCount(){
       let count=this.count;
       this.CHANGE_COUNT(2);
-      console.log("this data count-------",count);
+      console.log("this data count--11-----",count);
     },
     fShowCount(){
        console.log(this.$store.state);
