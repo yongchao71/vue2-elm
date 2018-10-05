@@ -4,10 +4,10 @@
             </head-top>
         <foot-guide :head-title="'测试页面'" goBack="true">
             </foot-guide>
-            <rating-star :rating='44'></rating-star>
             <alert-tip v-if="showAlert" @closeTip="showAlert= false" :alertText="'alertText'"></alert-tip>
-      <div>this is test page ---</div>
-      <img src="../../images/weixin.png" alt="load error"/>
-      <div class="icout" @click="fChangeCount">统计计数： {{count}}</div> 
-      <div class="icout" @click="fShowCount">显示计数</div> 
+            <div>this is test page ---</div>
+            <img src="../../images/weixin.png" alt="load error"/>
+            <div class="icout" @click="fChangeCount">统计计数： {{count}}</div> 
+            <div class="icout" @click="fShowCount">显示计数</div> 
+            <rating-star :rating='44' :starCount="3.5" :itemClasses="itemClasses"></rating-star>
 </div>

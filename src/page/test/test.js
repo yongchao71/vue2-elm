@@ -8,15 +8,16 @@ export default {
   data() {
     return {
       showAlert: false,
+      itemClasses:["AAA"]
     };
   },
 
   mounted() {
-    getUserList().then(res=>{
-      console.log("get user list info----6666-------",res);
-    }).catch(res=>{
-      console.log("get user list error-----------");
-    });
+    // getUserList().then(res=>{
+    //   console.log("get user list info----6666-------",res);
+    // }).catch(res=>{
+    //   console.log("get user list error-----------");
+    // });
   },
 
   components: {

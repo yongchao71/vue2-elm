@@ -1,58 +1,69 @@
- <template>
-	<div class="rating_container">
-        <section class="star_container">
-            <svg class="grey_fill" v-for="num in 5" :key="num">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#star"></use>
-            </svg>
-        </section>
-        <div :style="'width:' + rating*2/5 + 'rem'" class="star_overflow">
-            <section class="star_container" >
-                <svg  class="orange_fill" v-for="num in 5" :key="num">
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#star"></use>
-                </svg>
-            </section>
-        </div>
-    </div>
+<template>
+  <div class="star-component-ct">
+    <div style="" v-for="(starType, index) in aStars" :key="index" :class="['star-item full-star',starType]"></div>
+    <img src="../../images/full-star.png" />
+    <span>{{starCount}}</span>
+  </div>
 </template>
-
 <script>
     export default {
+        props:["rating","starCount"],
     	data(){
             return{
-               
+               aStars:[]
             }
         },
         mounted(){
-        	
+         
         },
-        props:['rating'],
+        created(){
+            console.log("star start---------");
+             console.log(this.starCount);
+             let _This=this;
+             let starCount=_This.starCount;
+             let aStars=_This.aStars||[];
+             let floor=Math.floor(starCount);
+             let ceil=Math.ceil(starCount);
+             console.log("floor ceil------------",floor,ceil);
+            for (let index = 0; index <floor; index++) {
+                aStars.push("full-star");
+                
+            }
+            if(floor!=ceil){
+                aStars.push("half-star");
+            }
+            let nostar=5-ceil;
+            for (let index = 0; index <nostar; index++) {
+                aStars.push("no-star");
+                
+            }
+
+        },
+        // computed(){
+
+        // }
     }
 </script>
 
 <style lang="scss" scoped>
     @import '../../style/mixin';
-	.rating_container{
-        position: relative;
-        top: .2rem;
-        @include wh(2rem, .4rem);
-        .star_overflow{
-            overflow: hidden;
-            position: relative;
-            height: 100%;
+    .star-component-ct{
+        .star-item{
+            background-repeat: no-repeat;
+            background-size:cover;
+            display: inline-block;
+            border: 1px solid rebeccapurple;
+            width: 40px;
+            height: 40px;
         }
-        .star_container{
-            position: absolute;
-            display: flex;
-            width: 2rem;
-            height: 0.4rem;
-            top: -0.02rem;
-            left: -0.02rem;
-            .grey_fill{
-                fill: #d1d1d1;
-            }
-            .orange_fill{
-                fill: #ff9a0d;
-            }
+        .full-star{
+         background-image: url('./../../images/full-star.png');
+        }
+        .half-star{
+         background-image: url('./../../images/half-star.png');
+        }
+        .no-star{
+          background-image: url('./../../images/no-star.png');
         }
     }
 </style>
