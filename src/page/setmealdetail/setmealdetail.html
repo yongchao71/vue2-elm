@@ -1,8 +1,64 @@
-<div class="detail-ct">
- <img src="src/images/food-img.png" />
- <div>this is test page ---</div>
- <img src="../../images/weixin.png" alt="load error"/>
- <div class="icout" @click="fChangeCount">统计计数： {{count}}</div> 
- <div class="icout" @click="fShowCount">显示计数</div> 
- <rating-star :rating='44' :starCount="3.3" :maxCount="5"></rating-star><span>fyyfff</span>
+<div class="f-8 b-s w-10 detail-ct">
+    <div class="food-img-ct">
+        <img class="food-img" src="../../images/food-img.png" />
+    </div>
+    <div class="bk-c-w title-outer">
+        <div class="w-10 flex  f-title-ct">
+            <div class="title-ct"><span>[这是食品的介绍信息]</span><span>豪华海鲜大的自助套餐不错</span></div>
+            <div class="flex-c fx-col share-ct">
+                <img src="../../images/full-star.png" />
+                <div class="f-6">分享</div>
+            </div>
+        </div>
+        <div class="rating-ct">
+            <rating-star :rating='44' :starCount="3.3" :maxCount="5"></rating-star>
+        </div>
+        <div class="f-6 i-b current-info"><span>已有120人成团</span> | <span>剩余库存120份</span></div>
+    </div>
+    <div class="f-7 flex bk-c-w mg-v-4 shop-info-ct">
+       <div class="shop-name">赤坂亭</div>
+       <div class="flex fx-col">
+           <div class="flex c-9"><img src="../../images/full-star.png" class="p-icon" /> <div>010-29374832</div>  </div>
+           <div class="flex-c c-9"><img src="../../images/full-star.png" class="p-icon" /><div> 200m | 徐州开发区8号 </div> </div>
+       </div>
+    </div>
+    <div class="bk-c-w pd-4">
+      <div class="bd-b f-7 pd-v-4">套餐详情</div>
+      <div class="items-ct">
+          <div class="f-6 flex jc-sb pd-t-4">
+              <div>精品自助+送龙虾</div>
+              <div>$233</div>
+          </div>
+          <div class="f-6 flex jc-sb pd-t-4">
+              <div>精品自助+送龙虾</div>
+              <div>$233</div>
+          </div>
+          <div class="f-6 flex jc-sb pd-t-4">
+              <div>精品自助+送龙虾</div>
+              <div>$233</div>
+          </div>
+      </div>
+    </div>
+    <div class="bk-c-w flex w-10 pd-4 purchase-ct">
+       <div class="f-8 c-w pd-4 p-price">$4545 <span class="f-6 c-w line-thr">$22</span></div>
+       <div class="f-6 pd-4 flex-c c-w p-discount">购买送豆豆</div>
+       <div class="f-7 pd-4 c-w flex-c p-right-now">立即购买</div>
+    </div>
+   <div class="bk-c-w pd-4 mg-v-4">
+       <div class="pd-v-4 f-7 bd-b">购买须知</div>
+       <div class="pd-4 f-6 notice-detail">
+          <div class="mg-t-4">
+              <div>有效期</div>
+              <div class="pd-v-4">2018-11-12(周末、法定假期通用)</div>
+          </div>
+          <div class="mg-t-4">
+              <div>使用规则</div>
+              <div class="pd-v-4">使用规则，这个使用规则一定得去看，要不你不知道怎么弄 (周末、法定假期通用)</div>
+          </div>
+          <div class="mg-t-4">
+              <div>退款规则</div>
+              <div class="pd-v-4">这是退款规则，你看看退款规则，要不然就不退款了(周末、法定假期通用)</div>
+          </div>
+       </div>
+   </div>
 </div>

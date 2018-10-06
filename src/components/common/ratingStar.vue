@@ -1,6 +1,7 @@
 <template>
   <div class="star-component-ct">
     <div style="" v-for="(starType, index) in aStars" :key="index" :class="['star-item',starType]"></div>
+    <span class="f-7">{{starCount}}分</span>
   </div>
 </template>
 <script>
@@ -44,8 +45,8 @@
             background-repeat: no-repeat;
             background-size:cover;
             display: inline-block;
-            width:1rem;
-            height:1rem;
+            width:0.8rem;
+            height:0.8rem;
         }
         .full-star{
          background-image: url('./../../images/full-star.png');
