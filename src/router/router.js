@@ -3,15 +3,23 @@ import {routerMode} from '../config/env'
 import VueRouter from 'vue-router'
 import Vue from 'vue';
 Vue.use(VueRouter);
-const home = r => require.ensure([], () => r(require('../page/home/home')), 'home')
-const test = r => require.ensure([], () => r(require('../page/test/test.vue')), 'test')
+const home = r => require.ensure([], () => r(require('../page/home/home')), 'home');
+const setmealdetail = r => require.ensure([], () => r(require('../page/setmealdetail/setmealdetail.vue')), 'setmealdetail');
+const test = r => require.ensure([], () => r(require('../page/test/test.vue')), 'test');
 const routes=[{
     path: '/',
     component: App,
     children: [ 
         {
             path: '',
-            redirect: '/home'
+            redirect: '/setmealdetail'
+        },
+        {
+            path: '/setmealdetail',
+            component: setmealdetail,
+            meta: {
+                title: '套餐详情'
+            }
         },
         {
             path: '/home',

@@ -33,8 +33,6 @@ module.exports = {
               }
             }
           },
-       // proxypath: 'http://cangdu.org:8001',
-        //proxypath: 'http://elm.cangdu.org',
         cssSourceMap: false
     }
 }
