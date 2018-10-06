@@ -1,13 +1,11 @@
 <template>
   <div class="star-component-ct">
-    <div style="" v-for="(starType, index) in aStars" :key="index" :class="['star-item full-star',starType]"></div>
-    <img src="../../images/full-star.png" />
-    <span>{{starCount}}</span>
+    <div style="" v-for="(starType, index) in aStars" :key="index" :class="['star-item',starType]"></div>
   </div>
 </template>
 <script>
     export default {
-        props:["rating","starCount"],
+        props:["starCount","maxCount"],
     	data(){
             return{
                aStars:[]
@@ -17,27 +15,21 @@
          
         },
         created(){
-            console.log("star start---------");
-             console.log(this.starCount);
              let _This=this;
              let starCount=_This.starCount;
              let aStars=_This.aStars||[];
              let floor=Math.floor(starCount);
              let ceil=Math.ceil(starCount);
-             console.log("floor ceil------------",floor,ceil);
+             let maxCount=_This.maxCount||5;
             for (let index = 0; index <floor; index++) {
-                aStars.push("full-star");
-                
+                aStars.push("full-star");    
             }
-            if(floor!=ceil){
+            if(floor<ceil){
                 aStars.push("half-star");
             }
-            let nostar=5-ceil;
-            for (let index = 0; index <nostar; index++) {
+            for (let index=0,nostar=maxCount-ceil; index <nostar; index++) {
                 aStars.push("no-star");
-                
             }
-
         },
         // computed(){
 
@@ -46,15 +38,14 @@
 </script>
 
 <style lang="scss" scoped>
-    @import '../../style/mixin';
     .star-component-ct{
+        display: inline-block;
         .star-item{
             background-repeat: no-repeat;
             background-size:cover;
             display: inline-block;
-            border: 1px solid rebeccapurple;
-            width: 40px;
-            height: 40px;
+            width:1rem;
+            height:1rem;
         }
         .full-star{
          background-image: url('./../../images/full-star.png');
