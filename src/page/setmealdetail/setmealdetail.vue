@@ -8,13 +8,17 @@
     }
     /******************top start************************/
     .title-outer{
-      padding: 0.4rem;
       .f-title-ct{
         .title-ct{
           flex: 1 1 5rem;
+          padding-right: 0.3rem;
         }
         .share-ct{
-          flex: 0 0 2rem;
+          flex: 0 0 2.4rem;
+          border-left: 1px solid #eeeeee;
+          .share-img{
+            @include wh(1rem,1rem)
+          }
         }
       }
       .rating-ct{
