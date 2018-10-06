@@ -5,8 +5,9 @@
         <foot-guide :head-title="'测试页面'" goBack="true">
             </foot-guide>
             <alert-tip v-if="showAlert" @closeTip="showAlert= false" :alertText="'alertText'"></alert-tip>
-            <c-loading  :isShowLoading="true"></c-loading>
+            <c-loading  :isShowLoading="false"></c-loading>
             <div>this is test page ---</div>
+            <count-data  :isShowLoading="true"></count-data>
             <img src="../../images/weixin.png" alt="load error"/>
             <div class="icout" @click="fChangeCount">统计计数： {{count}}</div> 
             <div class="icout" @click="fShowCount">显示计数</div> 

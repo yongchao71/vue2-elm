@@ -4,6 +4,7 @@ import ratingStar from "../../components/common/ratingStar.vue";
 import {getUserList, groupcity } from "../../service/getData";
 import alertTip from "src/components/common/alertTip";
 import cLoading from "src/components/common/loading";
+import countData from "src/components/common/countData";
 import { mapState, mapMutations } from "vuex";
 export default {
   data() {
@@ -27,6 +28,7 @@ export default {
     footGuide,
     ratingStar,
     alertTip,
+    countData,
     cLoading
   },
 
