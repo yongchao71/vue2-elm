@@ -12,7 +12,7 @@ const routes=[{
     children: [ 
         {
             path: '',
-            redirect: '/setmealdetail'
+            redirect: '/test'
         },
         {
             path: '/setmealdetail',
